@@ -25,10 +25,10 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-hairline bg-background/95 backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-hairline bg-editorial/95 backdrop-blur">
         <div className="container-page flex h-16 items-center justify-between gap-4 md:h-20">
           <a href="#top" className="flex min-w-0 flex-col leading-tight">
-            <span className="font-serif text-base font-bold md:text-lg">{SITE.ownerShortName}</span>
+            <span className="font-serif text-base font-bold md:text-xl">{SITE.ownerShortName}</span>
             <span className="truncate text-[11px] uppercase tracking-[0.16em] text-muted-foreground md:text-xs">
               {SITE.tagline}
             </span>

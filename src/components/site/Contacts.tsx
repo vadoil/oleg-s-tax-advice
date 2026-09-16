@@ -2,17 +2,20 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { CONTACTS, OFFICES, SITE, YANDEX_MAP_EMBED_SRC, METRIKA_GOALS } from "@/config";
 import { reachGoal } from "@/lib/metrika";
 import { Reveal } from "./Reveal";
+import samaraBusiness from "@/assets/samara-business.jpg";
 
 export function Contacts() {
   return (
-    <section id="contacts" className="section-y border-b border-hairline">
-      <div className="container-page">
-        <Reveal>
-          <p className="eyebrow">Контакты</p>
-          <h2 className="mt-4 text-2xl sm:text-3xl lg:text-4xl">Как связаться и где встретиться</h2>
-        </Reveal>
-
-        <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-12">
+    <section id="contacts" className="border-b border-hairline bg-editorial">
+      <div className="relative h-[260px] overflow-hidden md:h-[380px]">
+        <img src={samaraBusiness} alt="Декоративная городская панорама у Волги" loading="lazy" width={1600} height={800} className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-navy/20" />
+        <div className="container-page relative flex h-full items-end pb-10 text-on-navy md:pb-14">
+          <div><p className="text-xs font-semibold uppercase tracking-[0.18em]">Самара</p><h2 className="mt-3 max-w-2xl text-3xl text-on-navy sm:text-4xl lg:text-5xl">Как связаться и где встретиться</h2></div>
+        </div>
+      </div>
+      <div className="container-page section-y">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-5">
             <ul className="grid gap-px border border-hairline bg-hairline">
               {OFFICES.map((office) => (

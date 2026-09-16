@@ -9,13 +9,13 @@ const STATS = [
 
 export function Stats() {
   return (
-    <section className="border-b border-hairline bg-navy">
+    <section className="border-b border-hairline bg-editorial">
       <div className="container-page">
-        <dl className="grid gap-px bg-navy-soft sm:grid-cols-2 lg:grid-cols-4">
+        <dl className="grid border-y border-hairline sm:grid-cols-2 lg:grid-cols-4">
           {STATS.map((s, i) => (
-            <Reveal key={s.label} delay={i * 60} className="bg-navy px-6 py-10 text-center">
-              <dt className="font-serif text-4xl text-gold-soft md:text-5xl">{s.value}</dt>
-              <dd className="mt-3 text-sm text-on-navy-muted">{s.label}</dd>
+            <Reveal key={s.label} delay={i * 60} className="border-b border-hairline px-6 py-12 text-center sm:border-r lg:py-16">
+              <dt className="font-serif text-5xl text-gold md:text-6xl">{s.value}</dt>
+              <dd className="mt-4 text-sm text-muted-foreground">{s.label}</dd>
             </Reveal>
           ))}
         </dl>

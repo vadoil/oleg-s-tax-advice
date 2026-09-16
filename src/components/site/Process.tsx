@@ -17,10 +17,10 @@ export function Process() {
           <h2 className="mt-4 max-w-3xl text-2xl sm:text-3xl lg:text-4xl">Как мы работаем</h2>
         </Reveal>
 
-        <ol className="mt-10 grid gap-px border border-hairline bg-hairline md:grid-cols-5">
+        <ol className="relative mt-12 grid gap-8 md:grid-cols-5 md:gap-0 md:before:absolute md:before:left-[10%] md:before:right-[10%] md:before:top-6 md:before:h-px md:before:bg-hairline">
           {STEPS.map((step, i) => (
-            <Reveal as="li" key={step.title} delay={i * 60} className="bg-background p-6">
-              <span className="font-serif text-3xl text-gold">{String(i + 1).padStart(2, "0")}</span>
+            <Reveal as="li" key={step.title} delay={i * 60} className="relative bg-surface px-3 py-2 md:text-center">
+              <span className="relative z-10 inline-flex size-12 items-center justify-center bg-navy font-serif text-lg text-on-navy">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="mt-4 text-base leading-snug">{step.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.text}</p>
             </Reveal>
