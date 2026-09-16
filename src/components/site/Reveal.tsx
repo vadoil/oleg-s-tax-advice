@@ -17,8 +17,7 @@ export function Reveal({
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
+    if (!el || typeof IntersectionObserver === "undefined") {
       setVisible(true);
       return;
     }
@@ -31,7 +30,7 @@ export function Reveal({
           }
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      { threshold: 0.05, rootMargin: "0px 0px -20px 0px" },
     );
     io.observe(el);
     return () => io.disconnect();
@@ -42,9 +41,13 @@ export function Reveal({
   return (
     <Component
       ref={ref}
-      className={cn("reveal", className)}
-      data-visible={visible ? "true" : "false"}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={cn(className)}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "none" : "translateY(14px)",
+        transition: "opacity .7s ease, transform .7s ease",
+        transitionDelay: `${delay}ms`,
+      }}
     >
       {children}
     </Component>
