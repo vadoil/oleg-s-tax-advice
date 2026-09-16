@@ -110,7 +110,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <head>
         <HeadContent />
       </head>
@@ -122,6 +122,22 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function YandexMetrika() {
+  useEffect(() => {
+    const id = Number(YANDEX_METRIKA_ID);
+    if (!id || document.getElementById("ym-script")) return;
+    const script = document.createElement("script");
+    script.id = "ym-script";
+    script.async = true;
+    script.src = "https://mc.yandex.ru/metrika/tag.js";
+    script.onload = () => {
+      window.ym?.(id, "init", undefined);
+    };
+    document.head.appendChild(script);
+  }, []);
+  return null;
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
@@ -129,6 +145,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <YandexMetrika />
     </QueryClientProvider>
   );
 }
