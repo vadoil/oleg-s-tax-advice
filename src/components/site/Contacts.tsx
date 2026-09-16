@@ -8,7 +8,7 @@ export function Contacts() {
   return (
     <section id="contacts" className="border-b border-hairline bg-editorial">
       <div className="relative h-[260px] overflow-hidden md:h-[380px]">
-        <img src={samaraBusiness} alt="Панорама Самары и Волги" loading="lazy" width={1600} height={800} className="h-full w-full object-cover" />
+        <img src={samaraBusiness} alt="Декоративная городская панорама у Волги" loading="lazy" width={1600} height={800} className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-navy/20" />
         <div className="container-page relative flex h-full items-end pb-10 text-on-navy md:pb-14">
           <div><p className="text-xs font-semibold uppercase tracking-[0.18em]">Самара</p><h2 className="mt-3 max-w-2xl text-3xl text-on-navy sm:text-4xl lg:text-5xl">Как связаться и где встретиться</h2></div>
