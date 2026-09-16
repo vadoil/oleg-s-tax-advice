@@ -5,7 +5,9 @@ const listeners = new Set<Listener>();
 /** Подписка формы на «Заказать эту услугу». */
 export function onServiceRequest(listener: Listener) {
   listeners.add(listener);
-  return () => listeners.delete(listener);
+  return () => {
+    listeners.delete(listener);
+  };
 }
 
 /** Подставить услугу в форму и проскроллить к ней. */
