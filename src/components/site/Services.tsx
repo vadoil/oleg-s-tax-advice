@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { SERVICE_GROUPS, type Service } from "@/data/services";
+import { SERVICE_GROUPS, type Service, type ServiceGroup } from "@/data/services";
 import { requestService } from "@/lib/service-request";
 import { Reveal } from "./Reveal";
 import { cn } from "@/lib/utils";
@@ -65,8 +65,8 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
 }
 
 export function Services() {
-  const [activeGroup, setActiveGroup] = useState(SERVICE_GROUPS[0].id);
-  const group = SERVICE_GROUPS.find((g) => g.id === activeGroup) ?? SERVICE_GROUPS[0];
+  const [activeGroup, setActiveGroup] = useState<string>(SERVICE_GROUPS[0]!.id);
+  const group: ServiceGroup = SERVICE_GROUPS.find((g) => g.id === activeGroup) ?? SERVICE_GROUPS[0]!;
 
   return (
     <section id="services" className="section-y border-b border-hairline bg-surface">

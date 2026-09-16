@@ -40,18 +40,21 @@ export function LeadForm() {
   const [message, setMessage] = useState("");
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  type FieldErrors = { name?: string; phone?: string; consent?: string };
+  const [errors, setErrors] = useState<FieldErrors>({});
   const honeypot = useRef<HTMLInputElement>(null);
   const serviceRef = useRef<HTMLSelectElement>(null);
 
-  useEffect(() => onServiceRequest((id) => {
-    setService(id);
-    window.setTimeout(() => serviceRef.current?.focus(), 500);
-  }), []);
+  useEffect(() => {
+    return onServiceRequest((id) => {
+      setService(id);
+      window.setTimeout(() => serviceRef.current?.focus(), 500);
+    });
+  }, []);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    const next: Record<string, string> = {};
+    const next: FieldErrors = {};
     if (name.trim().length < 2) next.name = "Укажите имя";
     if (phone.replace(/\D/g, "").length !== 11) next.phone = "Укажите телефон полностью";
     if (!consent) next.consent = "Без согласия мы не можем обработать заявку";
