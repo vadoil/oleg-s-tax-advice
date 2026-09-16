@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { YANDEX_METRIKA_ID } from "../config";
+import "../lib/metrika";
 
 function NotFoundComponent() {
   return (
@@ -131,7 +133,12 @@ function YandexMetrika() {
     script.async = true;
     script.src = "https://mc.yandex.ru/metrika/tag.js";
     script.onload = () => {
-      window.ym?.(id, "init", undefined);
+      window.ym?.(id, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: false,
+      });
     };
     document.head.appendChild(script);
   }, []);
