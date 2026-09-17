@@ -11,6 +11,8 @@ import { LeadForm } from "@/components/site/LeadForm";
 import { Contacts } from "@/components/site/Contacts";
 import { Footer } from "@/components/site/Footer";
 import { CookieBanner } from "@/components/site/CookieBanner";
+import { CtaBand } from "@/components/site/CtaBand";
+
 import { CONTACTS, OFFICES, SITE } from "@/config";
 
 const TITLE = "Налоговый аудит и налоговые споры в Самаре | О. П. Городсков";
@@ -82,6 +84,8 @@ function Index() {
         <Services />
         <Situations />
         <Process />
+        <CtaBand />
+
         <About />
         <Stats />
         <Faq />

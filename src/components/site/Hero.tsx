@@ -2,7 +2,9 @@ import { Send, MessageCircle, ArrowRight } from "lucide-react";
 import { CONTACTS, METRIKA_GOALS } from "@/config";
 import { reachGoal } from "@/lib/metrika";
 import { Reveal } from "./Reveal";
+import { QuickForm } from "./QuickForm";
 import expertPortrait from "@/assets/expert-portrait.jpg";
+
 
 const FACTS = [
   { value: "С 1995 года", label: "в финансах и налогах" },
@@ -52,7 +54,18 @@ export function Hero() {
               <MessageCircle className="size-4" aria-hidden="true" /> Написать в MAX
             </a>
           </div>
+
+          <div className="mt-10 border border-hairline bg-background p-6 md:p-7">
+            <p className="eyebrow">Быстрая заявка</p>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Оставьте имя и телефон — перезвоню и разберу вашу ситуацию.
+            </p>
+            <div className="mt-5">
+              <QuickForm topic="Быстрая заявка с первого экрана" submitLabel="Перезвоните мне" />
+            </div>
+          </div>
         </Reveal>
+
 
         <Reveal delay={120} className="relative order-1 lg:order-2 lg:col-span-5 lg:pl-4">
           <div className="relative mx-auto max-w-[470px]">
