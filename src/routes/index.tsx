@@ -84,6 +84,8 @@ function Index() {
         <Services />
         <Situations />
         <Process />
+        <CtaBand />
+
         <About />
         <Stats />
         <Faq />
